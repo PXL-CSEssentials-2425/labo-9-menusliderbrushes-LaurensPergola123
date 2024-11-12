@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -16,6 +17,7 @@ namespace Labo_9___MenuSliderBrushes
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Labo_9___MenuSliderBrushes
             {
                 this.Close();
             }
-                
+
         }
         private void eersteGetal_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +39,35 @@ namespace Labo_9___MenuSliderBrushes
         private void tweedeGetal_Click(object sender, RoutedEventArgs e)
         {
             numberTwoTextBox.Text = "2";
+        }
+        private void valueChanged_Tick(object sender, EventArgs e)
+        {
+            if (sender is Slider slider)
+            {
+                if (slider.Name == "schuifregelaarEen")
+                {
+                    numberOneTextBox.Text = slider.Value.ToString();
+                }
+                if (slider.Name == "schuifregelaarTwee")
+                {
+                    numberTwoTextBox.Text = slider.Value.ToString();
+                }
+            }
+        }
+        private void ookDeSliderBro(object sender, RoutedEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                if (textBox.Name == "numberOneTextBox" && double.TryParse(numberOneTextBox.Text, out double value1))
+                {
+                    schuifregelaarEen.Value = value1;
+                }
+                else if (textBox.Name == "numberTwoTextBox" && double.TryParse(numberTwoTextBox.Text, out double value2))
+                {
+                    schuifregelaarTwee.Value = value2;
+                }
+
+            }
         }
     }
 }
