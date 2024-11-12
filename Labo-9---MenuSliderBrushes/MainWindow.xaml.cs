@@ -20,5 +20,23 @@ namespace Labo_9___MenuSliderBrushes
         {
             InitializeComponent();
         }
+
+        private void closeMenu_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Bent u zeker dat u wel afsluiten?", "Afsluiten",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
+                
+        }
+        private void eersteGetal_Click(object sender, RoutedEventArgs e)
+        {
+            numberOneTextBox.Text = "2";
+        }
+        private void tweedeGetal_Click(object sender, RoutedEventArgs e)
+        {
+            numberTwoTextBox.Text = "2";
+        }
     }
 }
